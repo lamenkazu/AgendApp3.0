@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+
+<%- include('../partials/head'); %>
+
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user'); %>
+
+        <section id='projetos'>
+            <h2 class='sr-only'>Projetos</h2>
+
+            <table id='tabela'>
+                <thead>
+                    <th>Nome </th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>EDIT</th>
+                </thead>
+
+                <tbody>
+                    
+                    <% clientes.forEach((cliente) => {%> 
+                        <tr class='musica'>
+                            <td><%= cliente.nome %> </td>
+                            <td><%= cliente.telefone %> </td>
+                            <td><%= cliente.email %> </td>
+                            <td class="actions">
+                                <a href="/editaCliente/<%= cliente.cpf %>" class="button white edit"
+                                    title="Editar Consulta">
+                                    <img src="/img/edit.png" alt="Editar Consulta" />
+                                </a>
+
+                                <a href="/agendamento/<%= cliente.cpf %>" class='button white edit'>
+                                    <img src="/img/adicionar.png" alt="Adicionar Consulta">
+                                </a>
+
+                                <a href="/cliente/sessoes/<%= cliente.cpf %>" class='button white edit'>
+                                    <img src="/img/lista.png" alt="Lista de Conuslta">
+                                </a>
+    
+    
+                            </td>
+                        </tr>
+                    <% }) %> 
+
+                    
+
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+    
+</body>
+</html>

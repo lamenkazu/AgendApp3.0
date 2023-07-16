@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user'); %>
+
+        <section id='projetos'>
+            <h2 class='sr-only'>Projetos</h2>
+
+            <table id='tabela'>
+                <thead>
+                    <th>Nome Completo</th>
+                    <th>Telefone</th>
+                    <th>Email</th>
+                    <th>CPF</th>
+                    <th>Tatto</th>
+                    <th>Piercing</th>
+                    <% if(profile.admin == 1){ %> 
+                        <th>EDIT </th>
+                    <% } %> 
+                </thead>
+
+                <tbody>
+
+                    <% funcionarios.forEach((funcionario) => { %> 
+                       <% if(funcionario.cpf != ""){ %> 
+
+                        <tr class='musica'>
+                            <td><%= funcionario.nome %> <%= funcionario.sobrenome %> </td>
+                            <td><%= funcionario.telefone %> </td>
+                            <td><%= funcionario.email %> </td>
+                            <td><%= funcionario.cpf %> </td>
+                            <td>
+                                <% if(funcionario.tat == 0){ %> 
+                                    Não
+                                <% } else {%> 
+                                    Sim
+                                <% } %> 
+                            </td>
+                            <td>
+                                <% if(funcionario.prc == 0){ %> 
+                                    Não
+                                <% } else {%> 
+                                    Sim
+                                <% } %> 
+                            </td>
+                            <% if(profile.admin == 1){ %> 
+                            <td class="actions">
+                                
+                                <a href="/editaFuncionario/<%= funcionario.cpf %>" class="button white edit"
+                                    title="Editar Consulta">
+                                    <img src="/img/edit.png" alt="Editar Consulta" />
+                                </a>
+                                
+
+                                <a href="/funcionario/sessoes/<%= funcionario.cpf %>" class='button white edit'>
+                                    <img src="/img/lista.png" alt="Lista de Conuslta">
+                                </a>
+
+                                <a href="/funcionario/logins/<%= funcionario.cpf %>">Logins</a>
+
+                                
+    
+                            </td>
+                            <% } %> 
+                        </tr>
+                        <% }}) %>
+
+                    
+
+                </tbody>
+            </table>
+
+        </section>        
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+
+
+    
+</body>
+</html>

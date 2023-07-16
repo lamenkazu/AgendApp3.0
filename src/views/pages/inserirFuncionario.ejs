@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user') %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-funcionario' action="/cadastroFuncionario" method="post">
+                <div class='itensForm'>
+                    <h2>Contratação de Funcionarios</h2>
+                </div>
+                <div class='itensForm'>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="sobrenome">Sobrenome</label>
+                    <input type="text" name="sobrenome" >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="telCli">Telefone</label>
+                    <input type="tel" name="tel" id="tel">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="user">Usuario Para Acesso no Sistema</label>
+                    <input type="text" name="user" id="user">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="senha">Senha Para Acesso no Sistema</label>
+                    <input type="password" name="senha" id="senha">
+                </div>
+
+                <div class="itemForm">
+                    <label for="admin">Administrador</label> 
+                    <input type="checkbox" name="admin"><br>
+                    <label for="tatto">Tattuador</label>
+                    <input type="checkbox" name="tat"><br>
+                    <label for="pierc">Body Piercer</label>
+                    <input type="checkbox" name="prc">
+
+                </div>
+
+                <input type="submit" form='form-funcionario' id='inserirFuncionario' value="Contratar Funcionario"
+                    onclick='agendaCliente()'>
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+
+
+    
+</body>
+</html>

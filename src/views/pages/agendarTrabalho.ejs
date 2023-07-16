@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        
+        <%- include('../partials/user'); %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-cliente' action="/agendamento/<%=cliente.cpf%>" method="post">
+                <div class='itensForm'>
+                    <h2>Agendamento</h2>
+                </div>
+
+                <div class='itensForm'>
+                    <label for="cpf">CPF do Cliente</label>
+                    <input type="number" name="cpf" id="id_cliente" value='<%= cliente.cpf %>' readonly>
+                </div>
+
+                <% if(profile.admin == 1){ %> 
+
+                    <div class='itensForm'>
+                        <label for="funcCpf">CPF do Funcionario</label>
+                        <input type="number" name="funcCpf" >
+                    </div>
+
+                <% } %> 
+
+
+                <div id='divProc' class='itensForm'>
+                    <% if(profile.tat == 1) { %> 
+                        <label for="tat">Tatoo</label>
+                        <input type="checkbox" name="tat" >
+                    <% } %> 
+
+                    <% if(profile.prc == 1) { %> 
+                        <label for="prc">Piercing</label>
+                        <input type="checkbox" name="prc">
+                    <% } %> 
+                </div>
+
+                <div class='itensForm'>
+                    <label for="horario">Horario</label>
+                    <input type="datetime-local" name="horario" id="horario">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="txtValor">Valor:</label>
+                    <input type="number" step='any' name="txtValor" id="txtValor">
+                </div>
+                <input type="submit" form='form-cliente' id='inserirCliente' value="Agendar Trabalho">
+            </form>
+
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+    
+</body>
+</html>

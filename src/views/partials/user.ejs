@@ -1,0 +1,22 @@
+<section id='bio'>
+    <h2 class='sr-only'>Biografia</h2>
+
+    <div class="card">
+        <h3>
+            <p>Bem vindo, <%= profile.nome %></p>              
+            <img class='icon' src="/img/login.png" alt="Icone de Login">
+        </h3>
+        <span> Usuario: <%= profile.user %></span> <br>
+        <span>CPF: <%= profile.cpf %> </span> <br>  
+        <span>Telefone: <%= profile.telefone %> </span> <br>
+        <span>Email: <%= profile.email %> </span> <br>
+        <% if(profile.admin == 1){%>
+            <span>Perfil administrativo </span> <br>
+        <%} %> 
+        <div class="botoesUser">
+            <button class='botaocard'  onclick="location.href='/funcionario/alterarSenha/<%= profile.cpf %>';"    >Editar</button>
+            <button class='botaocard'  onclick="location.href='/logout';"    >Sair</button>
+        </div>
+    </div>
+
+</section>

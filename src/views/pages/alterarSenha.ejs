@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user') %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-funcionario' action="/funcionario/updateSenha/<%=conta.cpf%>" method="post">
+                <div class='itensForm' id="funcionarioEdit">
+                    <h2>Alterar Dados do Login</h2>
+                </div>
+                
+                <div class='itensForm'>
+
+                <div class='itensForm'>
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf" value="<%=conta.cpf%>" readonly>
+                </div>
+
+
+                <div class='itensForm'>
+                    <label for="user">Usuario Para Acesso no Sistema</label>
+                    <input type="text" name="user" id="user" value="<%=conta.user%>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="senhaAntiga">Senha Antiga</label>
+                    <input type="password" name="senhaAntiga" >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="senhaNova">Nova Senha</label>
+                    <input type="password" name="senhaNova"  >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="senhaNovaR">Repita Nova Senha</label>
+                    <input type="password" name="senhaNovaR"  >
+                </div>
+
+                
+
+                <input type="submit" form='form-funcionario' id='inserirFuncionario' value="Atualizar Dados"
+                    onclick='agendaCliente()'>
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+
+    <%- include('../partials/footer'); %>
+
+    <script src="/scripts/script.js"></script>
+    
+
+
+    
+</body>
+</html>

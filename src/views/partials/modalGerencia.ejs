@@ -1,0 +1,34 @@
+<div class="modal-overlay gerencia">
+    <div class="modal">
+        <div class="input-group actions">
+            <a href="#" class="button cancel" onclick="fecharLogInG()">X</a>
+        </div>
+        <div class='inside'>
+            <h2>Login Administrativo</h2>
+
+            <section class='card' id='login-ger'>
+                <form id='form-login-ger' action="/login/admin" method="post">
+                    <div class='itensForm'>
+                        <h2>Insira os dados</h2>
+                    </div>
+    
+                    <div class='itensForm'>
+                        <label for="usuario">Usuario </label>
+                        <input type="text" name="usuario">
+                    </div>
+    
+                    <div id='divProc' class='itensForm'>
+                        <label id='lblProc' for="senha">Senha</label>
+                        <input type="password" name="senha" >
+                    </div>
+    
+                    <input class="input-login-button" type="submit" form='form-login-ger' value="Log In">
+                </form>
+    
+            </section>
+        </div>
+
+
+
+    </div>
+</div>

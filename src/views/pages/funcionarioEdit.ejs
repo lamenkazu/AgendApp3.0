@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user') %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-funcionario' action="/editaFuncionario/<%=funcionario.cpf%>" method="post">
+                <div class='itensForm' id="funcionarioEdit">
+                    <h2>Editar dados do Funcionario</h2>
+                </div>
+                
+                <div class='itensForm'>
+                    <label for="nome">Nome</label>
+                    <input type="text" name="nome" id="nome" value="<%=funcionario.nome%>" >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="sobrenome">Nome</label>
+                    <input type="text" name="sobrenome" id="nome" value="<%=funcionario.sobrenome%>" >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf" value="<%=funcionario.cpf%>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="telCli">Telefone</label>
+                    <input type="tel" name="tel" id="tel" value="<%=funcionario.telefone%>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" value="<%=funcionario.email%>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="nomeCliente">Usuario Para Acesso no Sistema</label>
+                    <input type="text" name="user" id="user" value="<%=funcionario.conta.user%>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="nomeCliente">Senha Para Acesso no Sistema</label>
+                    <input type="password" name="senha" id="senha" value="<%=funcionario.conta.senha%>">
+                </div>
+
+                <div class="itemForm">
+                    <label for="admin">Administrador</label> 
+                    <input type="checkbox" name="admin" <%= funcionario.conta.checkedAdmin %> ><br>
+                    <label for="tatto">Tattuador</label>
+                    <input type="checkbox" name="tat" <%= funcionario.checkedTat %>><br>
+                    <label for="pierc">Body Piercer</label>
+                    <input type="checkbox" name="prc" <%= funcionario.checkedPrc %>>
+                    
+                </div>
+
+                <button type="button" onclick="abrirModal()"  >
+                    <img class='apagarConsulta' src="/img/apagar.png" >
+                </button>
+
+                
+
+                <input type="submit" form='form-funcionario' id='inserirFuncionario' value="Contratar Funcionario"
+                    onclick='agendaCliente()'>
+            </form>
+
+        </section>
+
+    </main>
+
+    <section>
+
+
+        <div class="modal-overlay delete">
+            <div class="modal">
+                <div class="input-group actions">
+                    <a href="#" class="button cancel" onclick="fecharModal()">X</a>
+                </div>
+                <img class="apagarConsulta" src="/img/apagar.png" alt="Excluir Consulta" title="Excluir Consulta" />
+                
+                
+
+                <h3>Excluir Funcionario</h3>
+                <p>Quer mesmo remover <%= funcionario.nome %> do sistema? <br />
+                    Ela será apagada para sempre.
+                <p>
+                
+
+                <a id='btn-cancell' onclick="fecharModal()">Cancelar</a>
+                <button class="button red" type="submit" form="apagar">Excluir Consulta</button>
+                <form action="/funcionario/delete/<%=funcionario.cpf%>" method="post" id="apagar">
+                </form>
+        
+        
+        
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <%- include('../partials/footer'); %>
+
+    <script src="/scripts/script.js"></script>
+    
+
+
+    
+</body>
+</html>

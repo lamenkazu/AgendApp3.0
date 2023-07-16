@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+
+<%- include('../partials/head'); %>
+
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <%- include('../partials/user'); %>
+
+        <section id='projetos'>
+            <h2 class='sr-only'>Projetos</h2>
+
+            <table id='tabela'>
+                <thead>
+                    <th>ID Login </th>
+                    <th>Data</th>
+                    <th>CPF do Funcionario</th>
+                </thead>
+
+                <tbody>
+                    
+                    <% logins.forEach((login) => {%> 
+                        <tr class='musica'>
+                            <td><%= login.idLogin%> </td>
+                            <td><%= login.data %> </td>
+                            <td><%= login.contaCpf %> </td>
+                        </tr>
+                    <% }) %> 
+
+                    
+
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+    
+</body>
+</html>

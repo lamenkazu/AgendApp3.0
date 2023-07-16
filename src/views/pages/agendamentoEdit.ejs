@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        
+        <%- include('../partials/user'); %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-sessao-edit' action="/editaAgendamento/<%= sessao.id %>" method="post">
+                <div class='itensForm'>
+                    <h2>Agendamento</h2>
+                </div>
+
+                <div class='itensForm'>
+                    <label for="clienteCpf">CPF do Cliente</label>
+                    <input type="number" name="cpf" id="clienteCpf" value='<%= sessao.clienteCpf %>' readonly>
+                </div>
+
+                <% if(profile.admin == 1){ %> 
+
+                    <div class='itensForm'>
+                        <label for="funcCpf">CPF do Funcionario</label>
+                        <input type="number" name="funcCpf" value='<%= sessao.funcionarioCpf %>'>
+                    </div>
+
+                <% } %> 
+
+                <div id='divProc' class='itensForm'>
+
+                    <% if(funcionario.tat == 1){%>
+                        <label id='tat' for="procTat">Tatoo</label>
+                        <input type="checkbox" name="tat" <%= sessao.checkedTat %>>
+                   <% } %> 
+
+                   <% if(funcionario.prc == 1){%>
+                        <label id='prc' for="procPierc">Piercing</label>
+                        <input type="checkbox" name="prc"  <%= sessao.checkedPrc %>>
+                    <% } %> 
+
+                </div>
+
+                <div class='itensForm'>
+                    <label for="horario">Horario</label>
+                    <input type="datetime-local" name="horario" id="horario", value='<%= sessao.data %>'>
+                </div>
+
+                <div class='itensForm'>
+                    <label for="txtValor">Valor:</label>
+                    <input type="number" step='any' name="txtValor" id="txtValor" value='<%= sessao.valor %>'>
+                </div>
+
+                <button type="button" onclick="abrirModal()"  >
+                    <img class='apagarConsulta' src="/img/apagar.png" >
+                </button>
+
+                <input type="submit" form='form-sessao-edit' id='inserirCliente' value="Agendar Trabalho">
+            </form>
+
+        </section>
+
+    </main>
+
+    <section>
+
+
+        <div class="modal-overlay delete">
+            <div class="modal">
+                <div class="input-group actions">
+                    <a href="#" class="button cancel" onclick="fecharModal()">X</a>
+                </div>
+                <img class="apagarConsulta" src="/img/apagar.png" alt="Excluir Consulta" title="Excluir Consulta" />
+                
+                
+
+                <h3>Excluir Funcionario</h3>
+                <p>Quer mesmo remover a sessao <%= sessao.id %> do sistema? <br />
+                    Ela será apagada para sempre.
+                <p>
+                
+
+                <a id='btn-cancell' onclick="fecharModal()">Cancelar</a>
+                <button class="button red" type="submit" form="apagar">Excluir Sessão</button>
+                <form action="/sessao/delete/<%=sessao.id%>" method="post" id="apagar">
+                </form>
+        
+        
+        
+            </div>
+        </div>
+
+    </section>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="/scripts/script.js"></script>
+    
+    
+</body>
+</html>

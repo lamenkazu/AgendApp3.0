@@ -1,0 +1,35 @@
+<div class="modal-overlay funcionario">
+    <div class="modal">
+        <div class="input-group actions">
+            <a href="#" class="button cancel" onclick="fecharLogInF()">X</a>
+        </div>
+        <div class='inside'>
+            <h2>Login Comercial</h2>
+            
+            <section class='card' id='login-func'>
+                <form id='form-login-func' action="/login/func" method="post">
+                    <div class='itensForm'>
+                        <h2>Insira os dados</h2>
+                    </div>
+    
+                    <div class='itensForm'>
+                        <label for="usuario_func">Usuario </label>
+                        <input type="text" name="usuario_func">
+                    </div>
+    
+                    <div id='divProc' class='itensForm'>
+                        <label id='lblProc' for="senha">Senha</label>
+                        <input type="password" name="senha" >
+                    </div>
+    
+                    <input class="input-login-button" type="submit" form='form-login-func' value="Log In">
+                </form>
+    
+            </section>
+
+        </div>
+
+
+
+    </div>
+</div>

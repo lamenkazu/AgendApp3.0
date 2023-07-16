@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+</head>
+<div>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        
+        <%- include('../partials/user'); %>
+
+        <section id='projetos'>
+            <h2 class='sr-only'>Projetos</h2>
+
+            <table id='tabela'>
+                <thead>
+                    <th>ID da sessão</th>
+                    <th>Nome do Cliente</th>
+                    <th>Data</th>
+                    <th>Tatto</th>
+                    <th>Piercing</th>
+                    <th>Preço</th>
+                    <th>Nome do Artista</th>
+                    <th>Edit</th>
+                </thead>
+
+                <tbody>
+
+                    <% sessoes.forEach(sessao => { %>
+
+                        <% if(profile.admin == 1){ %>
+                            <% if(sessao.funcionarioCpf === sessao.paramCpf){ %>
+                            <tr class='musica'>
+                            
+                                <td><%= sessao.id %> </td>
+                                <td><%= sessao.nomeCliente %> </td>                            
+                                <td> <%= sessao.data %>  </td>
+                                <% if(sessao.tat == 0){ %> 
+                                    <td>Não</td>
+                                <% } else {%> 
+                                    <td>Sim</td>
+                                <% } %> 
+                            
+                                <% if(sessao.prc == 0){ %> 
+                                    <td>Não</td>
+                                <% } else {%> 
+                                    <td>Sim</td>
+                                <% } %>
+                                <td><%=Number(sessao.valor).toFixed(2).replace('.', ',')  %>  </td>
+                                <td><%= sessao.nomeArtista %> </td>
+                                <td class="actions">
+                                    <a href="/editaAgendamento/<%= sessao.id %>" class="button white edit"
+                                        title="Editar Consulta">
+                                        <img src="/img/edit.png" alt="Editar Sessão" />
+                                    </a>
+        
+                                </td>
+                            </tr>
+                            <% }%>
+                        <% } %>
+
+
+                        
+                        
+                    <%}) %> 
+
+                    
+
+                    
+
+
+                </tbody>
+            </table>
+
+        </section>
+
+    </main>
+
+</div>
+
+<%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+
+
+    
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        
+         <%- include('../partials/user'); %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-cliente' action="/cadastroCliente" method="post">
+                <div class='itensForm'>
+                    <h2>Agendamento de Pacientes</h2>
+                </div>
+                <div class='itensForm'>
+                    <label for="nomeCliente">Nome</label>
+                    <input type="text" name="nome" id="nome">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="cpf">CPF</label>
+                    <input type="text" name="cpf" id="cpf">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="telCli">Telefone</label>
+                    <input type="tel" name="tel" id="tel">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+
+                <input type="submit" form='form-cliente' id='inserirCliente' value="Inserir Cliente"
+                    onclick='agendaCliente()'>
+            </form>
+
+        </section>
+
+    </main>
+
+
+
+    <%- include('../partials/footer'); %>
+
+    <script src="script.js"></script>
+    
+
+
+    
+</body>
+</html>

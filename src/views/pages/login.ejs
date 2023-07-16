@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        <section id='bio'>
+            <h2 class='sr-only'>Login</h2>
+
+            <div class="card">
+                <h3>
+                    <p>Login Comercial</p>
+                    <img class='icon' src="./img/login.png" alt="Icone de Login">
+                </h3>
+                <button class='botaocard' onclick="abrirLoginFunc()">Entrar como Funcionario</button>
+            </div>
+
+            <div class="card">
+                <h3>
+                    <p>Login Administrativo</p>
+                    <img class='icon' src="./img/login.png" alt="Icone de Login">
+                </h3>
+                <button class='botaocard' onclick="abrirLoginGer()">Entrar como Gerente</button>
+            </div>
+
+        </section>
+
+    </main>
+
+    <%- include('../partials/modalFuncionario'); %>
+
+    <%- include('../partials/modalGerencia'); %>
+
+    <%- include('../partials/footer'); %>
+
+    <script src="./scripts/script.js"></script>
+    
+
+
+    
+</body>
+</html>

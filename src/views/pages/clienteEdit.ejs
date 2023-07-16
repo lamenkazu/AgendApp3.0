@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head'); %>
+<body>
+
+    <%- include('../partials/header'); %>
+
+    <main class='container'>
+        
+         <%- include('../partials/user'); %>
+
+        <section class='card' id='agendamento'>
+            <form id='form-cliente-edit' action="/editaCliente/<%=cliente.cpf %>" method="post">
+                <div class='itensForm'>
+                    <h2>Agendamento de Pacientes</h2>
+                </div>
+                <div class='itensForm'>
+                    <label for="nomeCliente"> Nome </label>
+                    <input type="text" name="nome" id="nome" value="<%=cliente.nome %>" >
+                </div>
+
+                <div class='itensForm'>
+                    <label for="cpf"> CPF </label>
+                    <input type="text" name="cpf" id="cpf" value="<%=cliente.cpf %>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="telCli">Telefone</label>
+                    <input type="tel" name="tel" id="tel" value="<%=cliente.telefone %>">
+                </div>
+
+                <div class='itensForm'>
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email" value="<%=cliente.email %>">
+                </div>
+
+                <button type="button" onclick="abrirModal()"  >
+                    <img class='apagarConsulta' src="/img/apagar.png" >
+                </button>
+
+                <input type="submit" form='form-cliente-edit' id='inserirCliente' value="Editar Cliente">
+            </form>
+
+        </section>
+
+    </main>
+
+    <section>
+
+
+        <div class="modal-overlay delete">
+            <div class="modal">
+                <div class="input-group actions">
+                    <a href="#" class="button cancel" onclick="fecharModal()">X</a>
+                </div>
+                <img class="apagarConsulta" src="/img/apagar.png" alt="Excluir Consulta" title="Excluir Consulta" />
+                
+                
+
+                <h3>Excluir Funcionario</h3>
+                <p>Quer mesmo remover <%= cliente.nome %> do sistema? <br />
+                    Ele será apagado para sempre.
+                <p>
+                
+
+                <a id='btn-cancell' onclick="fecharModal()">Cancelar</a>
+                <button class="button red" type="submit" form="apagar">Excluir Consulta</button>
+                <form action="/cliente/delete/<%=cliente.cpf%>" method="post" id="apagar">
+                </form>
+        
+        
+        
+            </div>
+        </div>
+
+    </section>
+
+
+
+    <%- include('../partials/footer'); %>
+
+    <script src="/scripts/script.js"></script>
+    
+
+
+    
+</body>
+</html>
